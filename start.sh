@@ -1,3 +1,3 @@
 #!/bin/bash
-/usr/sbin/php-fpm8.2 --nodaemonize &
+/usr/local/sbin/php-fpm --nodaemonize &
 nginx -g 'daemon off;'
