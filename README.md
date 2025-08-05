@@ -80,3 +80,12 @@ sudo chmod +x build.sh run.sh start.sh
 
 ```
 
+# Install Certbot (on the host):
+
+```
+
+sudo apt-get update
+sudo apt-get install -y certbot
+
+```
+
