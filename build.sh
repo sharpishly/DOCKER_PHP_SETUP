@@ -1,3 +1,4 @@
 #!/bin/bash
 
-docker build -t php-nginx .
+# Build the Docker image
+docker build -t sharpishly-dev .
