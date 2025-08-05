@@ -30,7 +30,7 @@ server {
     listen 4000;
     server_name localhost;
 
-    root /var/www/sharpishly_dev/sharpishly.com/website/public;
+    root /var/www/sharpishly/sharpishly.com/website/public;
     index index.php index.html;
 
     location / {
@@ -67,8 +67,8 @@ sudo ufw allow 4000/tcp
 
 ```
 
-sudo chown -R www-data:www-data /var/www/sharpishly_dev
-sudo chmod -R 755 /var/www/sharpishly_dev
+sudo chown -R www-data:www-data /var/www/sharpishly
+sudo chmod -R 755 /var/www/sharpishly
 sudo chmod +x build.sh run.sh start.sh
 
 ```
@@ -76,8 +76,8 @@ sudo chmod +x build.sh run.sh start.sh
 # Build & Run
 
 ```
+cd /var/www/sharpishly/ && git stash && git pull && git fetch
 sudo chmod +x build.sh run.sh start.sh
-cd /var/www/sharpishly_dev/ && git stash && git pull && git fetch
 ./build.sh
 ./run.sh
 

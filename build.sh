@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Build the Docker image
-docker build -t sharpishly-dev .
+docker build -t sharpishly .

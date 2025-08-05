@@ -17,11 +17,11 @@ RUN apt-get update && apt-get install -y \
 COPY nginx.conf /etc/nginx/sites-available/default
 
 # Create web root and copy the index.php file
-RUN mkdir -p /var/www/sharpishly_dev/sharpishly.com/website/public
-COPY index.php /var/www/sharpishly_dev/sharpishly.com/website/public/index.php
+RUN mkdir -p /var/www/sharpishly/sharpishly.com/website/public
+COPY index.php /var/www/sharpishly/sharpishly.com/website/public/index.php
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www/sharpishly_dev && chmod -R 755 /var/www/sharpishly_dev
+RUN chown -R www-data:www-data /var/www/sharpishly && chmod -R 755 /var/www/sharpishly
 
 # Expose ports 80, 443, and 4000
 EXPOSE 80 443 4000
@@ -29,6 +29,8 @@ EXPOSE 80 443 4000
 # Copy startup script and make it executable
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
+
+# Test MySql
 
 # Start PHP-FPM and Nginx
 CMD ["/start.sh"]
