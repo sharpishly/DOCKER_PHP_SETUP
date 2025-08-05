@@ -69,7 +69,7 @@ sudo ufw allow 4000/tcp
 
 sudo chown -R www-data:www-data /var/www/sharpishly
 sudo chmod -R 755 /var/www/sharpishly
-sudo chmod +x build.sh run.sh start.sh
+sudo chmod +x /var/www/sharpishly/build.sh /var/www/sharpishly/run.sh /var/www/sharpishly/start.sh
 
 ```
 
