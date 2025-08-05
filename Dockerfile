@@ -1,7 +1,7 @@
 # Use official PHP image with FPM
 FROM php:8.2-fpm
 
-# Install Nginx, MySQL client, cURL, and required PHP extensions
+# Install Nginx, MySQL client, cURL, certbot, and required PHP extensions
 RUN apt-get update && apt-get install -y \
     nginx \
     default-mysql-client \
@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     pkg-config \
     libssl-dev \
+    certbot \
     && docker-php-ext-install curl pdo pdo_mysql \
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,8 +20,11 @@ COPY nginx.conf /etc/nginx/sites-available/default
 RUN mkdir -p /var/www/sharpishly_dev/sharpishly.com/website/public
 COPY index.php /var/www/sharpishly_dev/sharpishly.com/website/public/index.php
 
-# Expose container port 4000
-EXPOSE 4000
+# Set permissions
+RUN chown -R www-data:www-data /var/www/sharpishly_dev && chmod -R 755 /var/www/sharpishly_dev
+
+# Expose ports 80, 443, and 4000
+EXPOSE 80 443 4000
 
 # Copy startup script and make it executable
 COPY start.sh /start.sh
