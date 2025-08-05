@@ -13,8 +13,8 @@ COPY nginx.conf /etc/nginx/sites-available/default
 RUN mkdir -p /var/www/sharpishly_dev
 COPY index.php /var/www/sharpishly_dev/sharpishly.com/website/public/index.php
 
-# Expose port 1000
-EXPOSE 1000
+# Expose port 4000
+EXPOSE 4000
 
 # Copy startup script
 COPY start.sh /start.sh
