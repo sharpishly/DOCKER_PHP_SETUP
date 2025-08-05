@@ -23,10 +23,60 @@ curl http://localhost:4000
 
 ```
 
+# Change port in nginx.conf listen 4000
+
+```
+server {
+    listen 4000;
+    server_name localhost;
+
+    root /var/www/sharpishly_dev/sharpishly.com/website/public;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+```
+
+# Check port
+
+```
+
+sudo ufw status
+
+```
+
+# Set port
+
+```
+
+sudo ufw allow 4000/tcp
+
+```
+
+
 # File permission
 
 ```
 sudo chmod +x build.sh run.sh start.sh
+
+```
+
+# Build & Run
+
+```
+
+./build.sh     # Build the Docker image
+./run.sh       # Run the container and test it
+
 
 ```
 
