@@ -76,9 +76,10 @@ sudo chmod +x build.sh run.sh start.sh
 # Build & Run
 
 ```
-
-./build.sh     # Build the Docker image
-./run.sh       # Run the container and test it
+sudo chmod +x build.sh run.sh start.sh
+cd /var/www/sharpishly_dev/ && git stash && git pull && git fetch
+./build.sh
+./run.sh
 
 
 ```
