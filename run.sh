@@ -1,5 +1,10 @@
 #!/bin/bash
-docker rm -f php-nginx-container || true
-docker run -d -p 1000:1000 --name php-nginx-container php-nginx
+# Remove existing container if exists
+docker rm -f sharpishly-dev || true
+
+# Run the container with proper port mapping and name
+docker run -d -p 4000:4000 --name sharpishly-dev php-nginx
+
 # Test localhost
-curl http://localhost:1000
+curl http://localhost:4000
+
