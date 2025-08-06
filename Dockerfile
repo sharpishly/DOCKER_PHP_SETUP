@@ -14,12 +14,12 @@ RUN apt-get update && apt-get install -y \
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/sites-available/default
 # Create web root and copy the index.php file
-RUN mkdir -p /var/www/sharpishly_dev/sharpishly.com/website/public
-COPY index.php /var/www/sharpishly_dev/sharpishly.com/website/public/index.php
+RUN mkdir -p /var/www/sharpishly/sharpishly.com/website/public
+COPY index.php /var/www/sharpishly/sharpishly.com/website/public/index.php
 # Set permissions
-RUN chown -R www-data:www-data /var/www/sharpishly_dev && chmod -R 755 /var/www/sharpishly_dev
-# Expose port 8001
-EXPOSE 8001
+RUN chown -R www-data:www-data /var/www/sharpishly && chmod -R 755 /var/www/sharpishly
+# Expose port 8000
+EXPOSE 8000
 # Copy startup script and make it executable
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
