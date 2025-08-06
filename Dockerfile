@@ -1,7 +1,4 @@
 # Use official PHP image with FPM
-
-# Branch sharpishly_dev
-
 FROM php:8.2-fpm
 # Install Nginx, MySQL client, cURL, certbot, and required PHP extensions
 RUN apt-get update && apt-get install -y \
@@ -21,8 +18,8 @@ RUN mkdir -p /var/www/sharpishly_dev/sharpishly.com/website/public
 COPY index.php /var/www/sharpishly_dev/sharpishly.com/website/public/index.php
 # Set permissions
 RUN chown -R www-data:www-data /var/www/sharpishly_dev && chmod -R 755 /var/www/sharpishly_dev
-# Expose ports 80, 443, and 4000
-EXPOSE 80 443 4000
+# Expose port 8001
+EXPOSE 8001
 # Copy startup script and make it executable
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
