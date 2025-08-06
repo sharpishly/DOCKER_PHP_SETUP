@@ -13,5 +13,5 @@ ls -ld /var/www/letsencrypt/*
 sudo cp sharpishly.com /etc/nginx/sites-available/
 sudo cp dev.sharpishly.com /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/sharpishly.com /etc/nginx/sites-enabled/
-sudo ln -s /etc/nginx/sites-available/sharpishly.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/dev.sharpishly.com /etc/nginx/sites-enabled/
 
